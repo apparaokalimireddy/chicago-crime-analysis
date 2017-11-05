@@ -10,5 +10,5 @@ Steps
     - Trend of all the crimes overttime - chart with a line per crime type - DONE
     - What are the Top 5 crimes in last 5 years? Bar chart by year. Each bar showing crime type by color
     - Heatmap - DONE
-  - Step 5: Predict crimes for 2017 in Chicago for a given assault
-  - Step 6: Analyse the chicago crime data in comparison to Seattle
+- Step 5: Predict crimes for 2017 in Chicago for a given assault
+- Step 6: Analyse the chicago crime data in comparison to Seattle
