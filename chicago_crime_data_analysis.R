@@ -271,9 +271,12 @@ crimeRateMapByType(crimeType='BATTERY', year=2016)
 crimeRateMapByType(crimeType='BATTERY', year=2017)
 crimeRateMapByType(crimeType='NARCOTICS', year=2016)
 crimeRateMapByType(crimeType='NARCOTICS', year=2017)
+crimeRateMapByType(crimeType='HOMICIDE', year=2016)
+crimeRateMapByType(crimeType='HOMICIDE', year=2017)
 
 # Create chart to show relation between thefts and per capita income
 crimeAndPerCapitaIncome(crimeType="THEFT", year="2017", title="Relation between Thefts and Per Capita Income")
 crimeAndPerCapitaIncome(crimeType="ROBBERY", year="2017", title="Relation between Robberies and Per Capita Income")
 crimeAndPerCapitaIncome(crimeType="BATTERY", year="2017", title="Relation between Battery and Per Capita Income")
 crimeAndPerCapitaIncome(crimeType="NARCOTICS", year="2017", title="Relation between Narcotics and Per Capita Income")
+crimeAndPerCapitaIncome(crimeType="HOMICIDE", year="2017", title="Relation between Homicides and Per Capita Income")

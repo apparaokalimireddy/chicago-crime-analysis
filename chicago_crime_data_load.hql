@@ -55,27 +55,3 @@ STORED AS TEXTFILE
 tblproperties ("skip.header.line.count"="1");
 
 load data local inpath "chicago_socio_economics.csv" OVERWRITE into table chicago_socio_economics;
-
--- Create chicago_crimes_by_area table and load data using Query
-create table chicago_crimes_by_area
-  ROW FORMAT delimited
-  STORED AS TEXTFILE
-  AS
-  select year, community_area, primary_type, count(*) as crime_count from chicago_crimes_part_year
-  where community_area != ""
-  group by year, community_area, primary_type
-  order by year, community_area, primary_type
-
-
-  -- Create chicago_crimes_socio_economics table and load
-  create table chicago_crimes_socio_economics
-    ROW FORMAT delimited
-    STORED AS TEXTFILE
-    AS
-    select year, primary_type, crime_count, s.* from
-    (
-      select year, community_area, primary_type, count(*) as crime_count from chicago_crimes_part_year
-      where community_area != ""
-      group by year, community_area, primary_type
-      order by year, community_area, primary_type
-    ) c join chicago_socio_economics s on (c.community_area=s.community_area)
