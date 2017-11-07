@@ -197,6 +197,23 @@ crimeRateMapByType<-function(crimeType='THEFT', year=2017) {
   ggsave(file=paste("map-crime-rate-",crimeType,"-",year,".png",sep=""), plot=p)
 }
 
+##
+## Function: crimeAndPerCapitaIncome
+## Relation between a crime type and Per Capita income
+crimeAndPerCapitaIncome<-function(crimeType="THEFT", year="2017", title="Relation between Thefts and Per Capita Income") {
+  df<-as.data.frame(sql(paste("select d.community, d.total_population, d.per_capita_income, count(*) as crime_count from chicago_crimes_part_year c join chicago_communities d on (c.community_area=d.community_area) where c.year='", year, "' and c.primary_type='", crimeType, "' group by d.community, d.total_population, d.per_capita_income",sep="")))
+  df$total_population<-as.numeric(gsub(as.character(df$total_population), pattern=",", replacement = "", fixed = TRUE))
+  df$crime_count<-as.numeric(as.character(df$crime_count))
+  df$crime_rate<-(df$crime_count/df$total_population)*1000
+
+  p<-ggplot(df, aes(x=per_capita_income, y=crime_rate)) +
+  xlab("Per Capita Income") + ylab("Crime Rate per 1000 Residents") +
+  geom_point(shape=1) +
+  geom_smooth(method=lm, se=FALSE) + ggtitle(title)
+  ggsave(file=paste("crime-percapita-",crimeType,"-",year,".png",sep=""), plot=p)
+}
+
+
 ## Analysis/Chart generation start here
 ##
 #Generate Trend over years
