@@ -209,7 +209,9 @@ crimeAndPerCapitaIncome<-function(crimeType="THEFT", year="2017", title="Relatio
   p<-ggplot(df, aes(x=per_capita_income, y=crime_rate)) +
   xlab("Per Capita Income") + ylab("Crime Rate per 1000 Residents") +
   geom_point(shape=1) +
+  geom_text(data=subset(df[order(df$crime_rate,decreasing=T)[1:5],]), aes(label=community, colour="red"),show.legend = FALSE,size=2) +
   geom_smooth(method=lm, se=FALSE) + ggtitle(title)
+
   ggsave(file=paste("crime-percapita-",crimeType,"-",year,".png",sep=""), plot=p)
 }
 
@@ -263,9 +265,15 @@ crimeRateMap(2017)
 # Create Crime rate map for THEFTs
 crimeRateMapByType(crimeType='THEFT', year=2016)
 crimeRateMapByType(crimeType='THEFT', year=2017)
+crimeRateMapByType(crimeType='ROBBERY', year=2016)
+crimeRateMapByType(crimeType='ROBBERY', year=2017)
+crimeRateMapByType(crimeType='BATTERY', year=2016)
+crimeRateMapByType(crimeType='BATTERY', year=2017)
 crimeRateMapByType(crimeType='NARCOTICS', year=2016)
 crimeRateMapByType(crimeType='NARCOTICS', year=2017)
 
 # Create chart to show relation between thefts and per capita income
 crimeAndPerCapitaIncome(crimeType="THEFT", year="2017", title="Relation between Thefts and Per Capita Income")
+crimeAndPerCapitaIncome(crimeType="ROBBERY", year="2017", title="Relation between Robberies and Per Capita Income")
+crimeAndPerCapitaIncome(crimeType="BATTERY", year="2017", title="Relation between Battery and Per Capita Income")
 crimeAndPerCapitaIncome(crimeType="NARCOTICS", year="2017", title="Relation between Narcotics and Per Capita Income")
