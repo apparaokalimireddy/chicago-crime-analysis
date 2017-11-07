@@ -263,3 +263,7 @@ crimeRateMap(2017)
 # Create Crime rate map for THEFTs
 crimeRateMapByType(crimeType='THEFT', year=2016)
 crimeRateMapByType(crimeType='THEFT', year=2017)
+
+# Create chart to show relation between thefts and per capita income
+crimeAndPerCapitaIncome(crimeType="THEFT", year="2017", title="Relation between Thefts and Per Capita Income")
+crimeAndPerCapitaIncome(crimeType="NARCOTICS", year="2017", title="Relation between Narcotics and Per Capita Income")
