@@ -171,9 +171,7 @@ crimeMap<-function(year=2017) {
 ## Function: crimeRateMap
 ## Function to create map of crime rates in 77 communities in Chicago
 crimeRateMap<-function(year=2017) {
-  df<-sql(paste("select crime_date, primary_type, c.latitude, c.longitude from chicago_crimes_part_year a join chicago_communities c on (c.community_area=a.community_area) where year='", year,"'", sep=""))
-  write.csv(as.data.frame(df), paste("/home/akalimir/chicago_crimes_cll_", year, ".csv", sep=""))
-  df<-read.csv(paste("chicago_community_crime_rate_", year, ".csv", sep=""))
+  df<-as.data.frame(sql(paste("select d.community, d.total_population, d.latitude, d.longitude, count(*) as crime_count from chicago_crimes_part_year c join chicago_communities d on (d.community_area = c.community_area) where c.year = '", year, "' group by d.community, d.total_population, d.latitude, d.longitude", sep="")))
   df$longitude<-as.numeric(as.character(df$longitude))
   df$latitude<-as.numeric(as.character(df$latitude))
   df$crime_count<-as.numeric(as.character(df$crime_count))
@@ -182,6 +180,21 @@ crimeRateMap<-function(year=2017) {
   chicago <- get_map(location = "chicago", zoom = 11)
   p<-ggmap(chicago) + geom_point(data = df, aes(x = longitude, y = latitude, color=crime_rate, size=crime_rate)) + labs(size="Crime Rate", color="Crime Rate") +scale_color_gradient(low = "yellow", high = "red")
   ggsave(file=paste("map-crime-rate-",year,".png",sep=""), plot=p)
+}
+
+##
+## Function: crimeRateMapByType
+## Function to create map of crime rates in 77 communities in Chicago by crime type, THEFT etc.
+crimeRateMapByType<-function(crimeType='THEFT', year=2017) {
+  df<-as.data.frame(sql(paste("select d.community, d.total_population, d.latitude, d.longitude, count(*) as crime_count from chicago_crimes_part_year c join chicago_communities d on (d.community_area = c.community_area) where c.year = '", year, "' and primary_type = '", crimeType, "' group by d.community, d.total_population, d.latitude, d.longitude", sep="")))
+  df$longitude<-as.numeric(as.character(df$longitude))
+  df$latitude<-as.numeric(as.character(df$latitude))
+  df$crime_count<-as.numeric(as.character(df$crime_count))
+  df$total_population<-as.numeric(gsub(as.character(df$total_population), pattern=",", replacement = "", fixed = TRUE))
+  df$crime_rate<-(df$crime_count/df$total_population)*1000
+  chicago <- get_map(location = "chicago", zoom = 11)
+  p<-ggmap(chicago) + geom_point(data = df, aes(x = longitude, y = latitude, color=crime_rate, size=crime_rate)) + labs(size="Crime Rate", color="Crime Rate") +scale_color_gradient(low = "yellow", high = "red")
+  ggsave(file=paste("map-crime-rate-",crimeType,"-",year,".png",sep=""), plot=p)
 }
 
 ## Analysis/Chart generation start here
@@ -229,3 +242,7 @@ crimeRateMap(2014)
 crimeRateMap(2015)
 crimeRateMap(2016)
 crimeRateMap(2017)
+
+# Create Crime rate map for THEFTs
+crimeRateMapByType(crimeType='THEFT', year=2016)
+crimeRateMapByType(crimeType='THEFT', year=2017)
