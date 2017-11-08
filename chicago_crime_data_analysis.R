@@ -7,7 +7,7 @@ library(ggmap)
 sql("use bighawk")
 
 # Get all crime data from partition by year table
-allcrimes<-sql("select c.*, a.community as community from chicago_crimes_part_year c left join chicago_communities a on (c.community_area = a.community_area)")
+allcrimes<-sql("select c.*, month(crime_date) as month, a.community as community from chicago_crimes_part_year c left join chicago_communities a on (c.community_area = a.community_area)")
 
 ##
 ## Function: trendOverYears
@@ -88,6 +88,26 @@ trendOfCrimes <- function(crimeTypes) {
     p<-p+geom_line(data=df, aes(group=Crime, colour=Crime, x=Year,y=Count))
   }
   ggsave(file=paste("trend_of_crimes", ".png", sep=""), plot=p)
+}
+
+##
+## Function: crimeTrendByMonth(years)
+##
+crimeTrendByMonth<-function(years) {
+  # Draw a line chart of a crime
+  p<-ggplot()
+  p<-p+xlab("Month") + ylab("Crimes")
+  p<-p+ggtitle("Trend of Crimes By Month")
+  p<-p+theme(plot.title = element_text(hjust = 0.5, face="bold"))
+  p<-p+scale_y_continuous(labels = comma)
+  p<-p+scale_x_continuous(breaks=seq(1,12,by=1))
+  for (y in years) {
+    df<-as.data.frame(count(groupBy(where(allcrimes,allcrimes$part_year==y),"part_year", "month")))
+    colnames(df) <- c("Year","Month","Count")
+    p<-p+geom_line(data=df, aes(color=factor(Year), group=factor(Year), x=Month,y=Count), size=1.5)
+    p<-p+labs(color = "Year")
+  }
+  ggsave(file=paste("crime_trend_by_month", ".png", sep=""), plot=p)
 }
 
 ##
