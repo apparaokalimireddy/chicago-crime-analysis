@@ -225,14 +225,14 @@ crimeRateMap<-function(year=2017) {
 ##
 ## Function: crimeRateMapByType
 ## Function to create map of crime rates in 77 communities in Chicago by crime type, THEFT etc.
-crimeRateMapByType<-function(crimeType='THEFT', year=2017) {
+crimeRateMapByType<-function(crimeType='THEFT', year=2017, z=12) {
   df<-as.data.frame(sql(paste("select d.community, d.total_population, d.latitude, d.longitude, count(*) as crime_count from chicago_crimes_part_year c join chicago_communities d on (d.community_area = c.community_area) where c.year = '", year, "' and primary_type = '", crimeType, "' group by d.community, d.total_population, d.latitude, d.longitude", sep="")))
   df$longitude<-as.numeric(as.character(df$longitude))
   df$latitude<-as.numeric(as.character(df$latitude))
   df$crime_count<-as.numeric(as.character(df$crime_count))
   df$total_population<-as.numeric(gsub(as.character(df$total_population), pattern=",", replacement = "", fixed = TRUE))
   df$crime_rate<-(df$crime_count/df$total_population)*1000
-  chicago <- get_map(location = "chicago", zoom = 12)
+  chicago <- get_map(location = "chicago", zoom = z)
   p<-ggmap(chicago) + geom_point(data = df, aes(x = longitude, y = latitude, color=crime_rate, size=crime_rate)) + labs(size="Crime Rate", color="Crime Rate") +scale_color_gradient(low = "yellow", high = "red")
   ggsave(file=paste("map-crime-rate-",crimeType,"-",year,".png",sep=""), plot=p)
 }
@@ -311,6 +311,8 @@ crimeRateMapByType(crimeType='THEFT', year=2016)
 crimeRateMapByType(crimeType='THEFT', year=2017)
 crimeRateMapByType(crimeType='ROBBERY', year=2016)
 crimeRateMapByType(crimeType='ROBBERY', year=2017)
+crimeRateMapByType(crimeType='BURGLARY', year=2016, z=11)
+crimeRateMapByType(crimeType='BURGLARY', year=2017, z=11)
 crimeRateMapByType(crimeType='BATTERY', year=2016)
 crimeRateMapByType(crimeType='BATTERY', year=2017)
 crimeRateMapByType(crimeType='NARCOTICS', year=2016)
@@ -321,6 +323,7 @@ crimeRateMapByType(crimeType='HOMICIDE', year=2017)
 # Create chart to show relation between thefts and per capita income
 crimeAndPerCapitaIncome(crimeType="THEFT", year="2017", title="Relation between Thefts and Per Capita Income")
 crimeAndPerCapitaIncome(crimeType="ROBBERY", year="2017", title="Relation between Robberies and Per Capita Income")
+crimeAndPerCapitaIncome(crimeType="BURGLARY", year="2017", title="Relation between Burglaries and Per Capita Income")
 crimeAndPerCapitaIncome(crimeType="BATTERY", year="2017", title="Relation between Battery and Per Capita Income")
 crimeAndPerCapitaIncome(crimeType="NARCOTICS", year="2017", title="Relation between Narcotics and Per Capita Income")
 crimeAndPerCapitaIncome(crimeType="HOMICIDE", year="2017", title="Relation between Homicides and Per Capita Income")
