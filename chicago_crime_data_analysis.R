@@ -270,7 +270,7 @@ trendByCrime("THEFT")
 trendByCrime("HOMICIDE")
 
 #Generate trend of THEFT and BATTERY on one chart
-trendOfCrimes(c("THEFT", "BATTERY", "HOMICIDE", "ROBBERY"))
+trendOfCrimes(c("THEFT", "BURGLARY", "BATTERY", "HOMICIDE", "ROBBERY"))
 
 # Trends by Month of the year and day of the weel
 crimeTrendByMonth(c(2014,2015,2016))
