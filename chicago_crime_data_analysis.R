@@ -7,7 +7,7 @@ library(ggmap)
 sql("use bighawk")
 
 # Get all crime data from partition by year table
-allcrimes<-sql("select c.*, month(crime_date) as month, a.community as community from chicago_crimes_part_year c left join chicago_communities a on (c.community_area = a.community_area)")
+allcrimes<-sql("select c.*, month(crime_date) as month, date_format(crime_date, 'u') as day, a.community as community from chicago_crimes_part_year c left join chicago_communities a on (c.community_area = a.community_area)")
 
 ##
 ## Function: trendOverYears
@@ -108,6 +108,26 @@ crimeTrendByMonth<-function(years) {
     p<-p+labs(color = "Year")
   }
   ggsave(file=paste("crime_trend_by_month", ".png", sep=""), plot=p)
+}
+
+##
+## Function: crimeTrendByDay(years)
+##
+crimeTrendByDay<-function(years) {
+  # Draw a line chart of a crime
+  p<-ggplot()
+  p<-p+xlab("Day") + ylab("Crimes")
+  p<-p+ggtitle("Trend of Crimes By Day of a Week")
+  p<-p+theme(plot.title = element_text(hjust = 0.5, face="bold"))
+  p<-p+scale_y_continuous(labels = comma)
+  #p<-p+scale_x_continuous(breaks=seq(1,7,by=1))
+  for (y in years) {
+    df<-as.data.frame(count(groupBy(where(allcrimes,allcrimes$part_year==y),"part_year", "day")))
+    colnames(df) <- c("Year","Day","Count")
+    p<-p+geom_line(data=df, aes(color=factor(Year), group=factor(Year), x=Day,y=Count), size=1.5)
+    p<-p+labs(color = "Year")
+  }
+  ggsave(file=paste("crime_trend_by_day", ".png", sep=""), plot=p)
 }
 
 ##
@@ -251,6 +271,10 @@ trendByCrime("HOMICIDE")
 
 #Generate trend of THEFT and BATTERY on one chart
 trendOfCrimes(c("THEFT", "BATTERY", "HOMICIDE", "ROBBERY"))
+
+# Trends by Month of the year and day of the weel
+crimeTrendByMonth(c(2014,2015,2016))
+crimeTrendByDay(c(2014,2015,2016))
 
 #Generate heatmap for all years, 2016 and 2017
 generateHeatmap()
