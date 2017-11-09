@@ -1,0 +1,282 @@
+[1] "MSE: 49.3847499620832"
+[1] "MSE(rounded prediction): 49.5054358890834"
++--------------------+--------------------+-----+---+-----------+-----+-------------------+
+|           community|          crime_type|month|day|crime_count|label|         prediction|
++--------------------+--------------------+-----+---+-----------+-----+-------------------+
+|             ASHBURN|     CRIMINAL DAMAGE|    1|  7|        5.0|  5.0|  7.800166404484971|
+|     WASHINGTON PARK|             BATTERY|    1|  7|       10.0| 10.0| 14.386743024064184|
+|      AUBURN GRESHAM|           NARCOTICS|    1|  7|        5.0|  5.0| 12.704160842146695|
+|         ROGERS PARK|               THEFT|    1|  7|       11.0| 11.0| 19.059696965905406|
+|            CLEARING|             BATTERY|    1|  1|        2.0|  2.0|  10.53689373970178|
+|              UPTOWN|               THEFT|    1|  2|       17.0| 17.0|   19.0167427031984|
+|              AUSTIN|        INTIMIDATION|    1|  2|        1.0|  1.0| 14.564666647619543|
+|GREATER GRAND CRO...|             ROBBERY|    1|  3|        6.0|  6.0|  8.054628228279523|
+|     NEAR SOUTH SIDE|               THEFT|    1|  4|        6.0|  6.0|  16.12024661122654|
+|         WEST ELSDON| MOTOR VEHICLE THEFT|    1|  3|        3.0|  3.0|-1.4251617900610765|
+|           WEST TOWN| MOTOR VEHICLE THEFT|    1|  6|        5.0|  5.0| 10.449470487399235|
+|              UPTOWN|       OTHER OFFENSE|    1|  7|        4.0|  4.0| 5.8964482762252075|
+|         ROGERS PARK|     CRIMINAL DAMAGE|    1|  5|        4.0|  4.0| 10.268486850506102|
+|     GRAND BOULEVARD|     CRIMINAL DAMAGE|    1|  2|        4.0|  4.0|   9.10065402848724|
+|      AUBURN GRESHAM|       OTHER OFFENSE|    1|  2|        5.0|  5.0| 11.791344400329278|
+|        PORTAGE PARK|  DECEPTIVE PRACTICE|    1|  3|        4.0|  4.0|  5.343964981997175|
+|        LOGAN SQUARE|             BATTERY|    1|  1|        6.0|  6.0|  18.61416736091976|
+|           WEST LAWN|             ASSAULT|    1|  3|        2.0|  2.0|  3.227829992739596|
+|      BELMONT CRAGIN|  DECEPTIVE PRACTICE|    1|  4|        3.0|  3.0| 7.7878598093385865|
+|           ENGLEWOOD|           NARCOTICS|    1|  5|        9.0|  9.0| 11.802195092998641|
+|           WEST LAWN|OFFENSE INVOLVING...|    1|  5|        2.0|  2.0|-2.3542627213338827|
+|         FULLER PARK|INTERFERENCE WITH...|    1|  5|        1.0|  1.0| -7.041398035648382|
+|      BELMONT CRAGIN|       OTHER OFFENSE|    1|  5|        5.0|  5.0|  8.163414773841081|
+|       MCKINLEY PARK|  DECEPTIVE PRACTICE|    1|  6|        2.0|  2.0|  0.667953853511944|
+|      WEST ENGLEWOOD|               THEFT|    1|  6|        5.0|  5.0| 24.421010781505206|
++--------------------+--------------------+-----+---+-----------+-----+-------------------+
+only showing top 25 rows
+
+Deviance Residuals: 
+(Note: These are approximate quantiles with relative error <= 0.01)
+    Min       1Q   Median       3Q      Max  
+-20.708   -3.281   -0.343    2.278  178.933  
+
+Coefficients:
+                                                 Estimate  Std. Error
+(Intercept)                                    -1.8986454    7.560637
+community_AUSTIN                               24.5383728    0.441346
+community_HUMBOLDT PARK                        14.4125061    0.446151
+community_WEST ENGLEWOOD                       13.3679930    0.446568
+community_NORTH LAWNDALE                       15.2037969    0.446953
+community_ENGLEWOOD                            12.7476000    0.447317
+community_AUBURN GRESHAM                       14.0881185    0.448057
+community_ROSELAND                             12.7374653    0.448180
+community_SOUTH SHORE                          15.4170447    0.448334
+community_GREATER GRAND CROSSING               12.6809995    0.449193
+community_CHICAGO LAWN                         11.7670378    0.449282
+community_WEST GARFIELD PARK                   11.7288063    0.449649
+community_SOUTH LAWNDALE                        9.6801168    0.450778
+community_NEW CITY                             10.2980739    0.450758
+community_BELMONT CRAGIN                       10.0153228    0.451270
+community_EAST GARFIELD PARK                   10.7523962    0.451392
+community_CHATHAM                              12.0581883    0.451589
+community_NEAR WEST SIDE                       16.0333486    0.451653
+community_SOUTH CHICAGO                        10.2446271    0.451735
+community_NEAR NORTH SIDE                      17.8989564    0.452216
+community_WEST PULLMAN                          8.7438087    0.453338
+community_WEST TOWN                            14.8280729    0.454803
+community_WOODLAWN                              8.2709738    0.455040
+community_ROGERS PARK                           8.2235500    0.456334
+community_LOGAN SQUARE                         10.7393295    0.456397
+community_LAKE VIEW                            12.0336511    0.456943
+community_BRIGHTON PARK                         6.7260849    0.457178
+community_LOOP                                 16.4068994    0.457207
+community_WASHINGTON HEIGHTS                    7.4288798    0.457285
+community_UPTOWN                                8.1869090    0.457958
+community_WEST RIDGE                            7.4682987    0.458279
+community_GRAND BOULEVARD                       7.5005832    0.460095
+community_LOWER WEST SIDE                       6.4225418    0.460677
+community_IRVING PARK                           7.1145025    0.460700
+community_WASHINGTON PARK                       6.5716280    0.460762
+community_GAGE PARK                             6.0069573    0.461093
+community_PORTAGE PARK                          7.6915727    0.461269
+community_ASHBURN                               6.1937823    0.462249
+community_ALBANY PARK                           6.1489267    0.463528
+community_LINCOLN PARK                          9.2861337    0.464672
+community_DOUGLAS                               6.3029574    0.464629
+community_SOUTH DEERING                         5.0779925    0.465158
+community_AVONDALE                              5.6889634    0.465990
+community_MORGAN PARK                           5.1940412    0.466293
+community_GARFIELD RIDGE                        5.2307929    0.466439
+community_EDGEWATER                             5.8468093    0.466878
+community_HERMOSA                               4.4514785    0.468513
+community_DUNNING                               4.5219865    0.468666
+community_WEST LAWN                             5.3386728    0.469290
+community_LINCOLN SQUARE                        4.8816479    0.469543
+community_CALUMET HEIGHTS                       3.9243201    0.471176
+community_AVALON PARK                           3.8319581    0.471650
+community_BRIDGEPORT                            4.4562783    0.472299
+community_NEAR SOUTH SIDE                       5.1622673    0.473186
+community_EAST SIDE                             3.8270404    0.473302
+community_HYDE PARK                             4.4269701    0.475299
+community_RIVERDALE                             3.6651809    0.475874
+community_OHARE                                 4.7089210    0.476037
+community_KENWOOD                               3.6857389    0.476771
+community_WEST ELSDON                           3.1686238    0.476977
+community_NORTH CENTER                          3.7087782    0.478915
+community_PULLMAN                               3.2144473    0.479739
+community_JEFFERSON PARK                        3.0844593    0.481057
+community_NORWOOD PARK                          3.4685191    0.481643
+community_FULLER PARK                           2.7126412    0.483471
+community_CLEARING                              2.6620559    0.483316
+community_ARMOUR SQUARE                         2.8934489    0.483414
+community_MCKINLEY PARK                         2.8003784    0.483588
+community_ARCHER HEIGHTS                        2.7011286    0.483772
+community_NORTH PARK                            2.3218540    0.489042
+community_BEVERLY                               2.5305659    0.489132
+community_OAKLAND                               1.6938280    0.496707
+community_MONTCLARE                             1.4336198    0.502669
+community_MOUNT GREENWOOD                       1.3780915    0.506740
+community_HEGEWISCH                             1.1688868    0.512997
+community_FOREST GLEN                           0.7911339    0.515075
+community_BURNSIDE                              1.1012005    0.523562
+crime_type_THEFT                               12.6706205    7.550304
+crime_type_BATTERY                              9.6495886    7.550307
+crime_type_CRIMINAL DAMAGE                      3.4408577    7.550333
+crime_type_OTHER OFFENSE                       -0.4559872    7.550395
+crime_type_ASSAULT                             -0.2780569    7.550368
+crime_type_DECEPTIVE PRACTICE                  -0.5148218    7.550395
+crime_type_BURGLARY                            -1.6246983    7.550452
+crime_type_MOTOR VEHICLE THEFT                 -2.7609997    7.550451
+crime_type_NARCOTICS                            0.4505159    7.550474
+crime_type_ROBBERY                             -2.7935854    7.550475
+crime_type_CRIMINAL TRESPASS                   -4.5169118    7.550579
+crime_type_WEAPONS VIOLATION                   -6.0780406    7.551032
+crime_type_OFFENSE INVOLVING CHILDREN          -6.2970147    7.551159
+crime_type_PUBLIC PEACE VIOLATION              -7.1507418    7.551371
+crime_type_CRIM SEXUAL ASSAULT                 -7.4701843    7.551704
+crime_type_SEX OFFENSE                         -7.3714051    7.552301
+crime_type_INTERFERENCE WITH PUBLIC OFFICER    -8.3581184    7.552313
+crime_type_HOMICIDE                            -8.5798912    7.553807
+crime_type_ARSON                               -7.9142607    7.554432
+crime_type_PROSTITUTION                        -8.1135973    7.555857
+crime_type_LIQUOR LAW VIOLATION                -7.8470366    7.558724
+crime_type_GAMBLING                           -10.7471262    7.560016
+crime_type_KIDNAPPING                          -7.1856118    7.560114
+crime_type_STALKING                            -7.6927576    7.561876
+crime_type_INTIMIDATION                        -8.1329192    7.565078
+crime_type_OBSCENITY                           -7.3970775    7.588125
+crime_type_CONCEALED CARRY LICENSE VIOLATION   -7.5715583    7.605341
+crime_type_NON-CRIMINAL                        -6.8821401    7.609471
+crime_type_NON - CRIMINAL                      -6.7478854    7.698924
+crime_type_HUMAN TRAFFICKING                  -10.7443079    7.705542
+crime_type_PUBLIC INDECENCY                    -8.5014000    7.712143
+crime_type_OTHER NARCOTIC VIOLATION            -9.4729362    8.007507
+month                                           0.0641718    0.007851
+day_5                                           0.4385527    0.099842
+day_2                                          -0.0063133    0.100445
+day_4                                           0.1218323    0.100479
+day_6                                           0.2168708    0.100568
+day_3                                           0.0016876    0.100656
+day_1                                           0.0597228    0.100695
+                                                t value    Pr(>|t|)
+(Intercept)                                   -0.251122  8.0172e-01
+community_AUSTIN                              55.598903  0.0000e+00
+community_HUMBOLDT PARK                       32.304100  0.0000e+00
+community_WEST ENGLEWOOD                      29.934925  0.0000e+00
+community_NORTH LAWNDALE                      34.016519  0.0000e+00
+community_ENGLEWOOD                           28.497918  0.0000e+00
+community_AUBURN GRESHAM                      31.442709  0.0000e+00
+community_ROSELAND                            28.420433  0.0000e+00
+community_SOUTH SHORE                         34.387390  0.0000e+00
+community_GREATER GRAND CROSSING              28.230624  0.0000e+00
+community_CHICAGO LAWN                        26.190777  0.0000e+00
+community_WEST GARFIELD PARK                  26.084369  0.0000e+00
+community_SOUTH LAWNDALE                      21.474235  0.0000e+00
+community_NEW CITY                            22.846100  0.0000e+00
+community_BELMONT CRAGIN                      22.193656  0.0000e+00
+community_EAST GARFIELD PARK                  23.820510  0.0000e+00
+community_CHATHAM                             26.701711  0.0000e+00
+community_NEAR WEST SIDE                      35.499261  0.0000e+00
+community_SOUTH CHICAGO                       22.678388  0.0000e+00
+community_NEAR NORTH SIDE                     39.580586  0.0000e+00
+community_WEST PULLMAN                        19.287625  0.0000e+00
+community_WEST TOWN                           32.603311  0.0000e+00
+community_WOODLAWN                            18.176372  0.0000e+00
+community_ROGERS PARK                         18.020892  0.0000e+00
+community_LOGAN SQUARE                        23.530662  0.0000e+00
+community_LAKE VIEW                           26.335126  0.0000e+00
+community_BRIGHTON PARK                       14.712193  0.0000e+00
+community_LOOP                                35.885050  0.0000e+00
+community_WASHINGTON HEIGHTS                  16.245630  0.0000e+00
+community_UPTOWN                              17.876997  0.0000e+00
+community_WEST RIDGE                          16.296418  0.0000e+00
+community_GRAND BOULEVARD                     16.302247  0.0000e+00
+community_LOWER WEST SIDE                     13.941540  0.0000e+00
+community_IRVING PARK                         15.442821  0.0000e+00
+community_WASHINGTON PARK                     14.262533  0.0000e+00
+community_GAGE PARK                           13.027647  0.0000e+00
+community_PORTAGE PARK                        16.674826  0.0000e+00
+community_ASHBURN                             13.399219  0.0000e+00
+community_ALBANY PARK                         13.265493  0.0000e+00
+community_LINCOLN PARK                        19.984285  0.0000e+00
+community_DOUGLAS                             13.565567  0.0000e+00
+community_SOUTH DEERING                       10.916703  0.0000e+00
+community_AVONDALE                            12.208341  0.0000e+00
+community_MORGAN PARK                         11.139001  0.0000e+00
+community_GARFIELD RIDGE                      11.214305  0.0000e+00
+community_EDGEWATER                           12.523193  0.0000e+00
+community_HERMOSA                              9.501290  0.0000e+00
+community_DUNNING                              9.648640  0.0000e+00
+community_WEST LAWN                           11.376053  0.0000e+00
+community_LINCOLN SQUARE                      10.396600  0.0000e+00
+community_CALUMET HEIGHTS                      8.328782  0.0000e+00
+community_AVALON PARK                          8.124573  4.4409e-16
+community_BRIDGEPORT                           9.435288  0.0000e+00
+community_NEAR SOUTH SIDE                     10.909597  0.0000e+00
+community_EAST SIDE                            8.085831  6.6613e-16
+community_HYDE PARK                            9.314075  0.0000e+00
+community_RIVERDALE                            7.701996  1.3545e-14
+community_OHARE                                9.891915  0.0000e+00
+community_KENWOOD                              7.730628  1.0880e-14
+community_WEST ELSDON                          6.643133  3.0906e-11
+community_NORTH CENTER                         7.744129  9.7700e-15
+community_PULLMAN                              6.700413  2.0921e-11
+community_JEFFERSON PARK                       6.411834  1.4458e-10
+community_NORWOOD PARK                         7.201426  6.0107e-13
+community_FULLER PARK                          5.610760  2.0211e-08
+community_CLEARING                             5.507905  3.6425e-08
+community_ARMOUR SQUARE                        5.985451  2.1671e-09
+community_MCKINLEY PARK                        5.790830  7.0303e-09
+community_ARCHER HEIGHTS                       5.583471  2.3653e-08
+community_NORTH PARK                           4.747759  2.0604e-06
+community_BEVERLY                              5.173586  2.3020e-07
+community_OAKLAND                              3.410116  6.4968e-04
+community_MONTCLARE                            2.852016  4.3454e-03
+community_MOUNT GREENWOOD                      2.719524  6.5390e-03
+community_HEGEWISCH                            2.278544  2.2697e-02
+community_FOREST GLEN                          1.535958  1.2455e-01
+community_BURNSIDE                             2.103288  3.5444e-02
+crime_type_THEFT                               1.678160  9.3320e-02
+crime_type_BATTERY                             1.278039  2.0124e-01
+crime_type_CRIMINAL DAMAGE                     0.455723  6.4859e-01
+crime_type_OTHER OFFENSE                      -0.060392  9.5184e-01
+crime_type_ASSAULT                            -0.036827  9.7062e-01
+crime_type_DECEPTIVE PRACTICE                 -0.068185  9.4564e-01
+crime_type_BURGLARY                           -0.215179  8.2963e-01
+crime_type_MOTOR VEHICLE THEFT                -0.365673  7.1461e-01
+crime_type_NARCOTICS                           0.059667  9.5242e-01
+crime_type_ROBBERY                            -0.369988  7.1139e-01
+crime_type_CRIMINAL TRESPASS                  -0.598221  5.4969e-01
+crime_type_WEAPONS VIOLATION                  -0.804928  4.2086e-01
+crime_type_OFFENSE INVOLVING CHILDREN         -0.833914  4.0433e-01
+crime_type_PUBLIC PEACE VIOLATION             -0.946946  3.4367e-01
+crime_type_CRIM SEXUAL ASSAULT                -0.989205  3.2257e-01
+crime_type_SEX OFFENSE                        -0.976048  3.2904e-01
+crime_type_INTERFERENCE WITH PUBLIC OFFICER   -1.106697  2.6843e-01
+crime_type_HOMICIDE                           -1.135837  2.5603e-01
+crime_type_ARSON                              -1.047631  2.9481e-01
+crime_type_PROSTITUTION                       -1.073816  2.8291e-01
+crime_type_LIQUOR LAW VIOLATION               -1.038143  2.9921e-01
+crime_type_GAMBLING                           -1.421574  1.5515e-01
+crime_type_KIDNAPPING                         -0.950463  3.4188e-01
+crime_type_STALKING                           -1.017308  3.0901e-01
+crime_type_INTIMIDATION                       -1.075061  2.8235e-01
+crime_type_OBSCENITY                          -0.974823  3.2965e-01
+crime_type_CONCEALED CARRY LICENSE VIOLATION  -0.995558  3.1947e-01
+crime_type_NON-CRIMINAL                       -0.904418  3.6578e-01
+crime_type_NON - CRIMINAL                     -0.876471  3.8078e-01
+crime_type_HUMAN TRAFFICKING                  -1.394361  1.6321e-01
+crime_type_PUBLIC INDECENCY                   -1.102340  2.7032e-01
+crime_type_OTHER NARCOTIC VIOLATION           -1.183007  2.3681e-01
+month                                          8.173713  2.2204e-16
+day_5                                          4.392454  1.1222e-05
+day_2                                         -0.062854  9.4988e-01
+day_4                                          1.212513  2.2532e-01
+day_6                                          2.156453  3.1051e-02
+day_3                                          0.016766  9.8662e-01
+day_1                                          0.593109  5.5311e-01
+
+(Dispersion parameter for gaussian family taken to be 56.91886)
+
+    Null deviance: 8445914  on 79423  degrees of freedom
+Residual deviance: 4514121  on 79308  degrees of freedom
+AIC: 546516
+
+Number of Fisher Scoring iterations: 1
+

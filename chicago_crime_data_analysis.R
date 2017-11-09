@@ -274,8 +274,6 @@ crimeAndPerCapitaIncome<-function(crimeType="THEFT", year="2017", title="Relatio
 
   ggsave(file=paste("crime-percapita-",crimeType,"-",year,".png",sep=""), plot=p)
 }
-
-
 ## Analysis/Chart generation start here
 ##
 #Generate Trend over years

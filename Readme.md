@@ -12,5 +12,8 @@ Steps
     - Chicago maps with crimes and crime rates
     - Relation between Per capita income and crime types (e.g., Thefts and Narcotics)
     - Crime trends by month of the year and day of a week
-- Step 5: Predict crimes for 2017 in Chicago for a given assault
-- Step 6: Analyse the chicago crime data in comparison to Seattle
+- Step 5: Analyse the chicago crime data in comparison to Seattle
+- Step 6: Predict crimes for 2017 in Chicago for a given assault (chicago_crime_data_predict.R)
+    - Predict number of crimes that can occur, given a crime type, month, day of the week and
+      hour of the day.
+    - Predict number of crimes that can occur, given a crime type, month, day of the week.
