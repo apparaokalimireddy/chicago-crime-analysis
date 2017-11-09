@@ -1,3 +1,5 @@
+[1] "MSE: 0.647151585298446"
+[1] "MSE(rounded precition): 0.732833590866717"
 +------------------+-------------------+-----+---+----+-----------+-----+------------------+
 |         community|         crime_type|month|day|hour|crime_count|label|        prediction|
 +------------------+-------------------+-----+---+----+-----------+-----+------------------+
@@ -29,10 +31,10 @@
 +------------------+-------------------+-----+---+----+-----------+-----+------------------+
 only showing top 25 rows
 
-Deviance Residuals: 
+Deviance Residuals:
 (Note: These are approximate quantiles with relative error <= 0.01)
-   Min      1Q  Median      3Q     Max  
--1.945  -0.513  -0.139   0.197  32.303  
+   Min      1Q  Median      3Q     Max
+-1.945  -0.513  -0.139   0.197  32.303
 
 Coefficients:
                                                 Estimate  Std. Error
@@ -279,6 +281,3 @@ Residual deviance: 324050  on 367852  degrees of freedom
 AIC: 997718
 
 Number of Fisher Scoring iterations: 1
-
-[1] "MSE: 0.647151585298446"
-[1] "MSE(rounded precition): 0.732833590866717"
