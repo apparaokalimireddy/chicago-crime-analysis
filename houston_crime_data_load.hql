@@ -1,3 +1,6 @@
+##
+## Create and load houston_crimes table and houston_crimes_part_year partition table
+##
 CREATE DATABASE IF NOT EXISTS bighawk;
 use bighawk;
 
@@ -40,4 +43,4 @@ ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 STORED AS TEXTFILE;
 
 insert overwrite table houston_crimes_part_year partition(part_year)
-  select *, year(date(crime_date)) as part_year from houston_crimes_part_year;
+  select *, int(substr(crime_date, (length(crime_date)-2-1), (length(crime_date) -1 ))) as part_year from houston_crimes;
