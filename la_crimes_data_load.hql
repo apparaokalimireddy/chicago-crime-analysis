@@ -1,6 +1,6 @@
 REATE DATABASE IF NOT EXISTS bighawk;
 use bighawk;
-
+# Source: https://data.lacity.org/A-Safe-City/Crime-Data-from-2010-to-Present/y8tr-7khq
 -- create la_crimes table and load with data
 CREATE TABLE IF NOT EXISTS la_crimes (
   dr_number string,
