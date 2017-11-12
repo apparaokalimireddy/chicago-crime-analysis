@@ -136,7 +136,7 @@ crimeTrendByDay<-function(years) {
 crimeTrendByHour<-function(years) {
   # Draw a line chart of a crime
   p<-ggplot()
-  p<-p+xlab("Day") + ylab("Crimes")
+  p<-p+xlab("Hour") + ylab("Crimes")
   p<-p+ggtitle("Trend of Crimes By Hour of a Day")
   p<-p+theme(plot.title = element_text(hjust = 0.5, face="bold"))
   p<-p+scale_y_continuous(labels = comma)
